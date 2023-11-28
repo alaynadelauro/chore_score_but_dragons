@@ -34,7 +34,7 @@ public class Startup
     services.AddScoped<AccountsRepository>();
     services.AddScoped<AccountService>();
     services.AddScoped<DragonService>();
-    services.AddSingleton<DragonRepository>();
+    services.AddScoped<DragonRepository>();
   }
 
   private void ConfigureCors(IServiceCollection services)

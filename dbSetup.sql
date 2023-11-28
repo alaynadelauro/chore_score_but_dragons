@@ -40,18 +40,28 @@ INSERT INTO
     dragons (name, armor, `canFly`)
 VALUES ('Dragon', 'scales', TRUE);
 
-INSERT INTO
-    dragons (name, armor, `canFly`)
-VALUES ('Drake', 'scales', FALSE);
-
-INSERT INTO
-    dragons (name, armor, `canFly`)
-VALUES ('Long', 'all', TRUE);
-
 --To get things back out of a TABLE
 
 SELECT * FROM dragons;
 
+-- Get only certain values from a table NOTE: case-sensitive
+
+-- AND would get only the values that have both 'scales' and canFly as TRUE
+
+-- to just get one or the other, just don't add the and statement
+
+SELECT * FROM dragons WHERE armor = 'scales' AND `canFly` = TRUE;
+
+-- To delete something from a table:
+
+-- NOTE: * makes it not work, don't say *
+
+DELETE FROM dragons WHERE id = 1;
+
 -- To delete a TABLE
 
 Drop TABLE dragons;
+
+-- To update something from a table
+
+UPDATE dragons SET name = "Sea Serpent" WHERE id = 6;
