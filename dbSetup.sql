@@ -16,9 +16,42 @@ CREATE TABLE
         -- not null: required: true
         -- Comment: this just adds stuff to our table to tell people what things are if clarification required. Not needed for this at all
         -- Auto-increment: it'll set it for me
-        name CHAR(255) NOT NULL -- CHAR is string notation to mean that the string can be between 0 to 255 characters. Not null means it can't be 0, however
+        name CHAR(255) NOT NULL,
+        -- CHAR is string notation to mean that the string can be between 0 to 255 characters. Not null means it can't be 0, however
+        armor ENUM(
+            'scales',
+            'feathers',
+            'fur',
+            'scales and feathers',
+            'fur and scales',
+            'fur and feathers',
+            'all'
+        ) NOT NULL,
+        canFly BOOLEAN NOT NULL DEFAULT true
     ) DEFAULT charset utf8 COMMENT '';
 
 -- To add things to a TABLE
 
-INSERT INTO dragons (name) VALUES ('Long')
+INSERT INTO dragons (name) VALUES ('Long');
+
+-- To add something with multiple values to a table:
+
+INSERT INTO
+    dragons (name, armor, `canFly`)
+VALUES ('Dragon', 'scales', TRUE);
+
+INSERT INTO
+    dragons (name, armor, `canFly`)
+VALUES ('Drake', 'scales', FALSE);
+
+INSERT INTO
+    dragons (name, armor, `canFly`)
+VALUES ('Long', 'all', TRUE);
+
+--To get things back out of a TABLE
+
+SELECT * FROM dragons;
+
+-- To delete a TABLE
+
+Drop TABLE dragons;
