@@ -38,4 +38,10 @@ public class DragonService(DragonRepository dragonRepository)
         Dragon updatedDragon = DragonRepository.UpdateDragon(foundDragon, dragonData);
         return updatedDragon;
     }
+    internal Dragon RemoveDragon(int dragonId)
+    {
+        Dragon dragon = GetDragonById(dragonId);
+        _dragonRepository.RemoveDragon(dragon);
+        return dragon;
+    }
 }

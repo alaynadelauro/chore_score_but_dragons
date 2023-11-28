@@ -49,4 +49,8 @@ public class DragonRepository
         foundDragon.Legs = dragonData.Legs;
         return foundDragon;
     }
+    internal void RemoveDragon(Dragon dragon)
+    {
+        _dragons.Remove(dragon);
+    }
 }

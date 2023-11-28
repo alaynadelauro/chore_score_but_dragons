@@ -57,4 +57,17 @@ public class DragonController(DragonService dragonService) : ControllerBase
             return BadRequest(error.Message);
         }
     }
+    [HttpDelete("{dragonId}")]
+    public ActionResult<Dragon> RemoveDragon(int dragonId)
+    {
+        try
+        {
+            Dragon dragon = _dragonService.RemoveDragon(dragonId);
+            return dragon;
+        }
+        catch (Exception error)
+        {
+            return BadRequest(error.Message);
+        }
+    }
 }
